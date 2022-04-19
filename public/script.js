@@ -127,9 +127,9 @@ const addVideoStream = (videoEl, stream) => {
 
 // play and stop camera
 
-const playStop = () => {
+const playStop = (cam_voice_open) => {
   let enabled = myVideoStream.getVideoTracks()[0].enabled;
-  if (enabled) {
+  if (enabled || cam_voice_open === true) {
     myVideoStream.getVideoTracks()[0].enabled = false;
     setPlayVideo();
   } else {
@@ -157,9 +157,9 @@ const setStopVideo = () => {
 
 // mute and unmute
 
-const muteUnmute = () => {
+const muteUnmute = (mic_voice_open) => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
-  if (enabled) {
+  if (enabled || mic_voice_open) {
     myVideoStream.getAudioTracks()[0].enabled = false;
     setUnmuteButton();
   } else {

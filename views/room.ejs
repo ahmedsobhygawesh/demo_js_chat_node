@@ -38,7 +38,7 @@
               <span>Mute</span>
             </div>
 
-            <div class="main__controls_button" id="playPauseVideo"  onclick="playStop()" >
+            <div class="main__controls_button" id="playPauseVideo"  onclick="playStop(false)" >
               <i class="fa fa-video-camera"></i>
               <span>Pause Video</span>
             </div>
@@ -110,53 +110,37 @@
           var commands = {
 
               //open mic
-              'open mic': hello,
-              'open mik': hello,
-              'opn mik': hello,
-              'open mike': hello,
-              'open microphone': hello,
+              'open mic': openMic,
+              'open microphone': openMic,
 
               //close mic
-              'mute mic': hello,
-              'mute mik': hello,
-              'mute mek': hello,
-              'mute mek': hello,
-              'mute mek': hello,
-              'mote mic': hello,
-              'mute mike': hello,
-              'mute microphone': hello,
-              'mut microphone': hello,
+              'close mic': closeMic,
+              'close microphone': closeMic,
 
 
               //open video
-              'open camera': hello,
-              'open cam': hello,
-              'opn camera': hello,
-              'open camera': hello,
-              'open camra': hello,
-              'open cmra': hello,
+              'open camera': openCam,
+              'open cam': openCam,
 
               //close video
-              'close camera': hello,
-              'close cam': hello,
-              'close camera': hello,
-              'close camera': hello,
-              'close camra': hello,
-              'close cmra': hello,
-
-
-
-
+              'close camera': closeCam,
+              'close cam': closeCam,
           }
 
-          function hello(){
-            alert('Hello! I am an alert box!!');
-
+          function openCam(){
+            playStop(true);
           }
 
-          function myname(){
-              console.log('My name is Billy!');
-              playStop();
+          function closeCam(){
+              playStop(false);
+          }
+
+          function openMic(){
+            muteUnmute(true);
+          }
+
+          function closeMic(){
+              muteUnmute(false);
           }
 
           // Add Commands
