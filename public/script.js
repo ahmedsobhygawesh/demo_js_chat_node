@@ -140,7 +140,7 @@ const playStop = () => {
 
 const playStopByVoice = (flag) => {
   let enabled = myVideoStream.getVideoTracks()[0].enabled;
-  if (flag == true) {
+  if (flag == false) {
     myVideoStream.getVideoTracks()[0].enabled = false;
     setPlayVideo();
   } else {
@@ -182,7 +182,7 @@ const muteUnmute = () => {
 
 const muteUnmuteByVoice = (flag) => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
-  if (flag == true) {
+  if (flag == false) {
     myVideoStream.getAudioTracks()[0].enabled = false;
     setUnmuteButton();
   } else {
