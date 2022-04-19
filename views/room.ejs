@@ -38,7 +38,7 @@
               <span>Mute</span>
             </div>
 
-            <div class="main__controls_button" id="playPauseVideo"  onclick="playStop(false)" >
+            <div class="main__controls_button" id="playPauseVideo"  onclick="playStop()" >
               <i class="fa fa-video-camera"></i>
               <span>Pause Video</span>
             </div>
@@ -110,37 +110,39 @@
           var commands = {
 
               //open mic
-              'open mic': openMic,
               'open microphone': openMic,
 
               //close mic
-              'close mic': closeMic,
               'close microphone': closeMic,
 
 
               //open video
               'open camera': openCam,
-              'open cam': openCam,
 
               //close video
               'close camera': closeCam,
-              'close cam': closeCam,
           }
 
           function openCam(){
-            playStop(true);
+           const t = new Boolean(true)
+            playStopByVoice(t);
           }
 
           function closeCam(){
-              playStop(false);
+              const f = new Boolean(false)
+              playStopByVoice(f);
+
           }
 
           function openMic(){
-            muteUnmute(true);
+            const t = new Boolean(true)
+            muteUnmuteByVoice(t);
           }
 
           function closeMic(){
-              muteUnmute(false);
+             const f = new Boolean(false)
+
+              muteUnmuteByVoice(f);
           }
 
           // Add Commands

@@ -127,9 +127,9 @@ const addVideoStream = (videoEl, stream) => {
 
 // play and stop camera
 
-const playStop = (cam_voice_open) => {
+const playStop = () => {
   let enabled = myVideoStream.getVideoTracks()[0].enabled;
-  if (enabled && cam_voice_open == true) {
+  if (enabled) {
     myVideoStream.getVideoTracks()[0].enabled = false;
     setPlayVideo();
   } else {
@@ -137,6 +137,18 @@ const playStop = (cam_voice_open) => {
     myVideoStream.getVideoTracks()[0].enabled = true;
   }
 };
+
+const playStopByVoice = (flag) => {
+  let enabled = myVideoStream.getVideoTracks()[0].enabled;
+  if (flag == true) {
+    myVideoStream.getVideoTracks()[0].enabled = false;
+    setPlayVideo();
+  } else {
+    setStopVideo();
+    myVideoStream.getVideoTracks()[0].enabled = true;
+  }
+};
+
 
 const setPlayVideo = () => {
   const html = `
@@ -157,9 +169,20 @@ const setStopVideo = () => {
 
 // mute and unmute
 
-const muteUnmute = (mic_voice_open) => {
+const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
-  if (enabled && mic_voice_open == true) {
+  if (enabled) {
+    myVideoStream.getAudioTracks()[0].enabled = false;
+    setUnmuteButton();
+  } else {
+    setMuteButton();
+    myVideoStream.getAudioTracks()[0].enabled = true;
+  }
+};
+
+const muteUnmuteByVoice = (flag) => {
+  const enabled = myVideoStream.getAudioTracks()[0].enabled;
+  if (flag == true) {
     myVideoStream.getAudioTracks()[0].enabled = false;
     setUnmuteButton();
   } else {
