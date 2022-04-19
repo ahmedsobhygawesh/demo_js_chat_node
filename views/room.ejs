@@ -100,7 +100,38 @@
     </div>
     <script src="script.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
 
+      if(annyang){
+          console.log("We have annyang!");
+
+          var commands = {
+              'yes': hello,
+              'no': myname
+
+          }
+
+          function hello(){
+            alert('Hello! I am an alert box!!');
+
+          }
+
+          function myname(){
+              console.log('My name is Billy!');
+              playStop();
+          }
+
+          // Add Commands
+          annyang.addCommands(commands);
+
+          // Start listening
+          annyang.start();
+
+  console.log("Msss!");
+
+      }
+
+  </script>
 
     
   </body>
